@@ -1,2 +1,5 @@
-sh: line 1: react-scripts: command not found
-Error: Command "npm run build" exited with 127
+{
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
