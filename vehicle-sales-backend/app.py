@@ -123,10 +123,16 @@ def delete_vehicle(vehicle_id):
 
 @app.route('/api/contact', methods=['POST'])
 def submit_contact():
-    data = request.get_json()
-    data["created_at"] = datetime.now()
-    result = db.contacts.insert_one(data)
-    return jsonify({"message": "Contact message submitted successfully", "id": str(result.inserted_id)})
+    try:
+        print("Contact endpoint hit")
+        data = request.get_json()
+        print(f"Data received: {data}")
+        data["created_at"] = datetime.now()
+        result = db.contacts.insert_one(data)
+        return jsonify({"message": "Contact message submitted successfully", "id": str(result.inserted_id)})
+    except Exception as e:
+        print(f"Error in contact: {str(e)}")
+        return jsonify({"error": str(e)}), 500
 
 @app.route('/api/sell-car', methods=['POST'])
 def submit_sell_request():
