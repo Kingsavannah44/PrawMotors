@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // Base API URL (update this to match your backend)
-const API_BASE_URL = "https://your-backend-url.vercel.app/api";
+const API_BASE_URL = "https://praw-motors.vercel.app/api";
 
 // Create an axios instance for reuse
 const apiClient = axios.create({
